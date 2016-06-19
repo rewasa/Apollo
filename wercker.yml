@@ -31,3 +31,17 @@ build:
         cwd: bootstrap/tests
         code: |
           /bin/bash test.sh
+          
+  
+  deploy:
+    steps:
+    - install-packages:
+        packages: wget unzip
+    - pip-install:
+        requirements_file: "requirements.txt"
+    - capgemini/apollo-deploy:
+        cloud: digitalocean
+        artifact_name: rewasa/apollo-ubuntu-14.04-amd64
+        artifact_version: 1
+        terraform_version: 0.5.0
+        run_tests: true
