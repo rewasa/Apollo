@@ -1,4 +1,4 @@
-box: python:2
+box: python:2.7-wheezy
 no-response-timeout: 15
 build:
   steps:
